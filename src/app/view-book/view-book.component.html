@@ -1,0 +1,16 @@
+<div class="container mt-4" *ngIf="book">
+    <h2>Book Details</h2>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Book Name: {{ book.name }}</h5>
+        <p class="card-text"><strong>Type:</strong> {{ book.type }}</p>
+        <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+        <p class="card-text"><strong>Locked:</strong> <input type="checkbox" class="ms-2" [checked]="book.locked" disabled></p>
+        <div class="mt-3 d-flex justify-content-end">
+          <a class="btn btn-outline-warning btn-sm me-2" [routerLink]="['/books/update', book.id]"><i class="bi bi-pencil"></i> Update</a>
+          <button class="btn btn-outline-danger btn-sm me-2" (click)="ngDelete(book.id)"><i class="bi bi-x-lg" ></i> Delete</button>
+          <a class="btn btn-outline-secondary btn-sm" [routerLink]="['/books']"><i class="bi bi-arrow-left"></i> Back</a>
+        </div>
+      </div>
+    </div>
+</div>

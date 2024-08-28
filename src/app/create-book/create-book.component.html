@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Create Book</h1>
+    <form [formGroup]="form" (ngSubmit) = "ngSave()">
+      <div class="mb-3">
+        <label for="bookName" class="form-label">Book Name</label>
+        <input type="text" class="form-control" id="bookName" formControlName="name" placeholder="Enter book name">
+      </div>
+      <div class="mb-3">
+        <label for="bookType" class="form-label">Book Type</label>
+        <select class="form-control" id="bookType" formControlName="type">
+          <option value="" disabled selected>Select book type</option>
+          <option *ngFor="let bookType of lstBookType" [value]="bookType">{{bookType}}</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="bookAuthor" class="form-label">Author</label>
+        <input type="text" class="form-control" id="bookAuthor" formControlName="author" formControlName="author" placeholder="Enter author name">
+      </div>
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" id="bookLocked" formControlName="locked">
+        <label class="form-check-label" for="bookLocked">Locked</label>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary"[disabled]="!form.valid">Submit</button>
+        <a class="btn btn-light ms-2" routerLink="/books"><i class="bi bi-arrow-left"></i>Back</a>
+      </div>
+    </form>
+  </div>
+
+
